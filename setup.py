@@ -10,7 +10,7 @@ with open(os.path.join(direcory, 'README.md'), encoding='utf-8') as f:
 
 setup(name='aclass',
       version='0.0.1',
-      description='INSERT SOMETHING HERE',
+      description='Online Classes Automation',
       author='Piotrek Rybiec',
       license='MIT',
       long_description=long_description,
