@@ -21,7 +21,7 @@ setup(name='aclass',
         "License :: OSI Approved :: MIT License"
       ],
       url='url',
-      install_requires=[INSERT SOMETHING],
+      install_requires=["selenium"],
       entry_points={
         "console_scripts":[
           "azoom=azoom.__main__:main",
