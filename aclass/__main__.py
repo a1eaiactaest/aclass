@@ -9,14 +9,17 @@ def configure():
 
 #TODO: Make function that takes argument from args and joins the lesson
 def join(subject):
-  pass
+  import json
+  f = open('classes.json','r')
+  data = json.load(f)
+  
 
 def main():
   argument = sys.argv[1]
   if argument == '--configure':
     import os
     import urllib.request
-    #configure()
+    # download file from gh repo and open it in vi for user to edit it
     current = os.path.dirname(os.path.realpath(__file__))
     url = 'https://raw.githubusercontent.com/a1eaiactaest/aclass/master/docs/classes.json'
     urllib.request.urlretrieve(url, f'{current}/classes.json')
