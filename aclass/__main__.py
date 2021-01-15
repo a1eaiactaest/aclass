@@ -11,7 +11,8 @@ def configure():
 def join(subject):
   import json
   import webbrowser
-  f = open('classes.json','r')
+  current = os.path.dirname(os.path.realpath(__file__))
+  f = open(f'{current}/classes.json','r')
   data = json.load(f)
   url = data[subject]
   webbrowser.open(url,new=0,autoraise=False)
