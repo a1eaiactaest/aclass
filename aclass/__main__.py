@@ -10,9 +10,11 @@ def configure():
 #TODO: Make function that takes argument from args and joins the lesson
 def join(subject):
   import json
+  import webbrowser
   f = open('classes.json','r')
   data = json.load(f)
-  
+  url = data[subject]
+  webbrowser.open(url,new=0,autoraise=False)
 
 def main():
   argument = sys.argv[1]
