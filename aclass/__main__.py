@@ -32,6 +32,21 @@ def main():
     # create second argument and take value from json file
     subject = sys.argv[2]
     join(subject)
+  
+  elif argument == '--help' or argument == '-h':
+    help_message = '''
+    usage: aclass [OPTION] {ARGUMENT}
+    
+    Join your classes.
+    For usage and help visit: https://github.com/a1eaiactaest/aclass
+
+    arguments:
+    -h, --help      display this help
+    --configure     configure aclass by writing file with your classes.
+    --join {class}  join to your class. Passing object from classes.json file as argument.
+    '''
+    print(help_message)
+
   else:
     # print help
     pass
