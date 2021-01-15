@@ -20,7 +20,7 @@ setup(name='aclass',
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License"
       ],
-      url='url',
+      url='https://github.com/a1eaiactaest/aclass',
       install_requires=[],
       entry_points={
         "console_scripts":[
