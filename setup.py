@@ -4,7 +4,7 @@ import os
 from setuptools import setup
 
 directory = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(direcory, 'README.md'), encoding='utf-8') as f:
+with open(os.path.join(directory, 'README.md'), encoding='utf-8') as f:
   long_description = f.read()
 
 
