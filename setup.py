@@ -9,7 +9,7 @@ with open(os.path.join(directory, 'README.md'), encoding='utf-8') as f:
 
 
 setup(name='aclass',
-      version='0.0.1',
+      version='0.0.2',
       description='Online Classes Automation',
       author='Piotrek Rybiec',
       license='MIT',
@@ -24,7 +24,7 @@ setup(name='aclass',
       install_requires=[],
       entry_points={
         "console_scripts":[
-          "azoom=azoom.__main__:main",
+          "aclass=aclass.__main__:main",
         ]
       },
       include_package_data=True)
