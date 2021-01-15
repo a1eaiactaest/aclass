@@ -25,7 +25,7 @@ Template is located [here](docs/classes.json).
 
 **Running this command again will overwrite already existing file and remove all contents.**
 
-#### Example
+### Example
 
 ```json
 {
@@ -35,3 +35,14 @@ Template is located [here](docs/classes.json).
 ```
 
 If you are wondering how json syntax works visit [this page](https://javaee.github.io/tutorial/jsonp001.html).
+
+### Usage
+
+Joining to your class is pretty simple. As the second argument you take name of object you assigned link in ```classes.json``` to.
+For example; in example above we have two classes: "maths" and "cs". You can name however you want. Key is to remember name of object.
+
+If you would like to join to your Computer Science class:
+
+```bash
+aclass --join name-of-cs-class-in-json-file
+```
