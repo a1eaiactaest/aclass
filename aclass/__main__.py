@@ -28,12 +28,12 @@ def main():
     os.system(f'vi {current}/classes.json')
     print('Configuration complete, running this procces again will overwrite existing data.')
 
-  elif argument == '--join':
+  if argument == '--join':
     # create second argument and take value from json file
     subject = sys.argv[2]
     join(subject)
   
-  elif argument == '--help' or argument == '-h':
+  if argument == '--help' or argument == '-h':
     help_message = '''
     usage: aclass [OPTION] {ARGUMENT}
     
@@ -46,10 +46,6 @@ def main():
     --join {class}  join to your class. Passing object from classes.json file as argument.
     '''
     print(help_message)
-
-  else:
-    # print help
-    pass
 
 if __name__ == "__main__":
   main()

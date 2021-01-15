@@ -9,7 +9,7 @@ with open(os.path.join(directory, 'README.md'), encoding='utf-8') as f:
 
 
 setup(name='aclass',
-      version='0.0.3',
+      version='0.0.4',
       description='Online Classes Automation',
       author='Piotrek Rybiec',
       license='MIT',
