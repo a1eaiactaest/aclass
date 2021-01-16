@@ -8,37 +8,16 @@ def configure():
 '''
 
 #TODO: Make function that takes argument from args and joins the lesson
-def join(subject):
+def join(subjecti, data):
   import json
   import webbrowser
   current = os.path.dirname(os.path.realpath(__file__))
-  f = open(f'{current}/classes.json','r')
-  data = json.load(f)
+#  f = open(f'{current}/classes.json','r')
+#  data = json.load(f)
   url = data[subject]
   webbrowser.open(url,new=0,autoraise=False)
-
-def main():
-  argument = sys.argv[1]
-  if argument == '--configure':
-    import urllib.request
-    # download file from gh repo and open it in vi for user to edit it
-    current = os.path.dirname(os.path.realpath(__file__))
-    url = 'https://raw.githubusercontent.com/a1eaiactaest/aclass/master/docs/classes.json'
-    urllib.request.urlretrieve(url, f'{current}/classes.json')
-    os.system(f'vi {current}/classes.json')
-    print('Configuration complete, running this procces again will overwrite existing data.')
-
-  if argument == '--join':
-    # create second argument and take value from json file
-    subject = sys.argv[2]
-    join(subject)
-  
-  if argument == '--edit':
-    current = os.path.dirname(os.path.realpath(__file__))
-    os.system(f'vi {current}/classes.json')
-    print(f'Your classes.json file is {current} directory')
-
-  if argument == '--help' or argument == '-h':
+ 
+def helpm():
     help_message = '''
     usage: aclass [OPTION] {ARGUMENT}
     
@@ -52,6 +31,35 @@ def main():
     --edit          edit classes.json file, it contains links to your online classes
     '''
     print(help_message)
+
+def main():
+  argument = sys.argv[1]
+  if argument == '--configure':
+    import urllib.request
+    # download file from gh repo and open it in vi for user to edit it
+    current = os.path.dirname(os.path.realpath(__file__))
+    url = 'https://raw.githubusercontent.com/a1eaiactaest/aclass/master/docs/classes.json'
+    urllib.request.urlretrieve(url, f'{current}/classes.json')
+    os.system(f'vi {current}/classes.json')
+    print('Configuration complete, running this procces again will overwrite existing data. Run --edit to edit this file again.')
+
+  if argument == '--join':
+    # create second argument and take value from json file
+    import json
+    key = sys.argv[2]
+    data = json.load(open(f'{current}/classes.json', 'r'))
+    if key in data:
+      join(key, data)
+    else:
+      helpm()
+ 
+  if argument == '--edit':
+    current = os.path.dirname(os.path.realpath(__file__))
+    os.system(f'vi {current}/classes.json')
+    print(f'Your classes.json file is {current} directory')
+
+  if argument == '--help' or argument == '-h':
+    helpm()
 
 if __name__ == "__main__":
   main()
