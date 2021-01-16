@@ -36,7 +36,7 @@ def main():
   if argument == '--edit':
     current = os.path.dirname(os.path.realpath(__file__))
     os.system(f'vi {current}/classes.json')
-    print('Your classes.json file is {current} directory')
+    print(f'Your classes.json file is {current} directory')
 
   if argument == '--help' or argument == '-h':
     help_message = '''
