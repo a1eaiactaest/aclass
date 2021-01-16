@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import sys
-
+import os
 '''
 def configure():
   current = os.path.dirname(os.path.realpath(__file__))
@@ -20,7 +20,6 @@ def join(subject):
 def main():
   argument = sys.argv[1]
   if argument == '--configure':
-    import os
     import urllib.request
     # download file from gh repo and open it in vi for user to edit it
     current = os.path.dirname(os.path.realpath(__file__))
@@ -34,6 +33,11 @@ def main():
     subject = sys.argv[2]
     join(subject)
   
+  if argument == '--edit':
+    current = os.path.dirname(os.path.realpath(__file__))
+    os.system(f'vi {current}/classes.json')
+    print('Your classes.json file is {current} directory')
+
   if argument == '--help' or argument == '-h':
     help_message = '''
     usage: aclass [OPTION] {ARGUMENT}
@@ -45,6 +49,7 @@ def main():
     -h, --help      display this help
     --configure     configure aclass by writing file with your classes.
     --join {class}  join to your class. Passing object from classes.json file as argument.
+    --edit          edit classes.json file, it contains links to your online classes
     '''
     print(help_message)
 
