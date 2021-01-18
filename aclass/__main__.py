@@ -26,31 +26,35 @@ def helpm():
     print(help_message)
 
 def main():
-  argument = sys.argv[1]
-  if argument == '--configure':
-    import urllib.request
-    # download file from gh repo and open it in vi for user to edit it
-    url = 'https://raw.githubusercontent.com/a1eaiactaest/aclass/master/docs/classes.json'
-    urllib.request.urlretrieve(url, f'{current}/classes.json')
-    os.system(f'vi {current}/classes.json')
-    print('Configuration complete, running this procces again will overwrite existing data. Run --edit to edit this file again.')
+  try:
+    argument = sys.argv[1]
+    if argument == '--configure':
+      import urllib.request
+      # download file from gh repo and open it in vi for user to edit it
+      url = 'https://raw.githubusercontent.com/a1eaiactaest/aclass/master/docs/classes.json'
+      urllib.request.urlretrieve(url, f'{current}/classes.json')
+      os.system(f'vi {current}/classes.json')
+      print('Configuration complete, running this procces again will overwrite existing data. Run --edit to edit this file again.')
 
-  if argument == '--join':
-    # create second argument and take value from json file
-    import json
-    key = sys.argv[2]
-    data = json.load(open(f'{current}/classes.json', 'r'))
-    if key in data:
-      join(key, data)
-    else:
+    if argument == '--join':
+      # create second argument and take value from json file
+      import json
+      key = sys.argv[2]
+      data = json.load(open(f'{current}/classes.json', 'r'))
+      if key in data:
+        join(key, data)
+      else:
+        helpm()
+   
+    if argument == '--edit':
+      # basically works same as --configure but doesnt fetch classes.json from repo
+      os.system(f'vi {current}/classes.json')
+      print(f'Your classes.json file is {current} directory')
+
+    if argument == '--help' or argument == '-h':
       helpm()
- 
-  if argument == '--edit':
-    # basically works same as --configure but doesnt fetch classes.json from repo
-    os.system(f'vi {current}/classes.json')
-    print(f'Your classes.json file is {current} directory')
-
-  if argument == '--help' or argument == '-h':
+  
+  except IndexError:
     helpm()
 
 if __name__ == "__main__":
